@@ -5,8 +5,10 @@ This is a video/audio conferencing app built with nextjs and uses doline-sfu as 
 Install the dependencies
 
 ```bash
+#Clone the ripo
+git clone 
 #Go to the client app folder
-cd ./dolinemeet && npm i
+cd /dolinemeet-client && npm i
 ```
 
 Run the development server:
