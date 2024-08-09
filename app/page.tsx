@@ -7,7 +7,7 @@ import { Socket } from 'socket.io-client'
 
 type Props = {}
 
-export default function page({}: Props) {
+export default function Home({}: Props) {
 
     const router = useRouter()
 

@@ -15,7 +15,7 @@ import { RoomContext } from "@/context/RoomContext";
 import { send } from "process";
 
 
-export default function Home() {
+export default function RoomPage() {
 
   const roomID = useParams()['rid']
 
@@ -40,7 +40,7 @@ export default function Home() {
     return ()=>{
       socket?.emit('exitRoom', { roomID, peerID })
     }
-  }, [socket])
+  }, [socket, peerID, roomID])
 
   // Start the local stream and display it in a video frame
   const getLocalVideo = useCallback(async()=>{
@@ -60,7 +60,7 @@ export default function Home() {
       setRouterCapabilities(data)
       console.log("RTPCapabilities recieved.")
     })
-  }, [socket])
+  }, [socket, roomID])
 
   // Create a client Mediasoup Device and load it with the RTPCapabilities
   const createMediasoupDevice = useCallback(async()=>{
@@ -136,7 +136,7 @@ export default function Home() {
       setSendTransport(transport)
       console.log("Send Transport set. ", transport.id)
     })
-  }, [device, socket])
+  }, [device, socket, peerID, roomID])
 
    // Connect the client send transport to the router send transport and start producing.
   const connectSendTransport  = useCallback(async()=>{
@@ -193,7 +193,7 @@ export default function Home() {
       console.log("Failed to produce")
         console.log(error)
     }
-  }, [localStream])
+  }, [localStream, sendTransport])
 
   // Create recieve transport for the device
   const createReciveTransport = useCallback(()=>{
