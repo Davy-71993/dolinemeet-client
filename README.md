@@ -6,7 +6,7 @@ Install the dependencies
 
 ```bash
 #Go to the client app folder
-cd ./dolinemeet && npm i
+cd /dolinemeet-client && npm i
 ```
 
 Run the development server:
